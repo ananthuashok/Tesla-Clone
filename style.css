@@ -1,0 +1,725 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Gotham Medium", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+a {
+  color: rgb(0, 0, 0);
+}
+
+li {
+  list-style: none;
+}
+
+@media (max-width: 300px) {
+  a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+  }
+
+  li {
+    list-style: none;
+  }
+}
+.mobile-ver {
+  display: none;
+}
+
+.desktop-ver {
+  display: block;
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  -ms-scroll-snap-type: y mandatory;
+      scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+}
+.desktop-ver .btn {
+  width: 256px;
+  height: 2rem;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.desktop-ver .btn-black {
+  background-color: rgba(0, 0, 0, 0.687);
+  color: white;
+  font-weight: 600;
+}
+.desktop-ver .btn-black:hover {
+  background-color: rgba(0, 0, 0, 0.753);
+}
+.desktop-ver .btn-white {
+  background-color: white;
+  color: rgb(57, 55, 55);
+  font-weight: 600;
+}
+.desktop-ver .btn-white:hover {
+  background-color: rgba(255, 255, 255, 0.612);
+  color: rgb(8, 8, 8);
+}
+.desktop-ver .navbar {
+  position: fixed;
+  width: 100%;
+  height: 5vh;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+}
+.desktop-ver .navbar #Tesla-Logo {
+  width: 100px;
+  height: 30px;
+  margin-left: 1.6rem;
+  margin-top: 0.3rem;
+  cursor: pointer;
+}
+.desktop-ver .navbar .Products-List {
+  display: flex;
+  height: 100%;
+  width: 40%;
+  padding-top: 0.5rem;
+  margin-left: 11rem;
+}
+.desktop-ver .navbar .Products-List .list-product {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 7rem;
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
+  margin: 0 0.1rem;
+}
+.desktop-ver .navbar .Products-List .list-product:hover {
+  background-color: rgba(128, 128, 128, 0.19);
+  border-radius: 10px;
+  padding-bottom: 1px;
+}
+.desktop-ver .navbar .Products-List .list-product a {
+  text-decoration: none;
+}
+.desktop-ver .navbar .Menu {
+  display: flex;
+  height: 100%;
+  padding-top: 0.5rem;
+  padding-right: 2rem;
+}
+.desktop-ver .navbar .Menu .menu-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
+  margin: 0 1rem;
+  cursor: pointer;
+}
+.desktop-ver .navbar .Menu .menu-item:hover {
+  background-color: rgba(128, 128, 128, 0.19);
+  padding-bottom: 1px;
+  border-radius: 10px;
+}
+.desktop-ver .navbar .Menu .menu-item a {
+  text-decoration: none;
+}
+.desktop-ver .Hidden-Menu {
+  display: block;
+  background: white;
+  position: fixed;
+  height: 100vh;
+  width: 0;
+  right: 0;
+  opacity: 0;
+  z-index: 100;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+.desktop-ver .Hidden-Menu.show {
+  display: block;
+  background: white;
+  position: fixed;
+  height: 100vh;
+  width: 40vh;
+  right: 0;
+  top: 0;
+  opacity: 1;
+  z-index: 100;
+  box-shadow: grey -0.1px 1px 100px 10px;
+}
+.desktop-ver .Hidden-Menu #Hamburger-Wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 2vh;
+  width: 2vh;
+  right: 2rem;
+  top: 2rem;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+}
+.desktop-ver .Hidden-Menu #Hamburger-Wrapper:hover {
+  background-color: rgb(218, 217, 217);
+  box-shadow: rgb(218, 217, 217) 0px 0px 1px 10px;
+}
+.desktop-ver .Hidden-Menu #Hamburger-Wrapper #hamburger {
+  background: transparent;
+  width: 100%;
+  height: 20%;
+  border-radius: 20px;
+}
+.desktop-ver .Hidden-Menu #Hamburger-Wrapper #hamburger::before {
+  content: "";
+  background: black;
+  position: absolute;
+  width: 100%;
+  height: 20%;
+  transform: translateY(0px) rotate(50deg);
+  border-radius: 20px;
+}
+.desktop-ver .Hidden-Menu #Hamburger-Wrapper #hamburger::after {
+  content: "";
+  background: black;
+  position: absolute;
+  height: 23%;
+  width: 100%;
+  transform: translateY(0px) rotate(-50deg);
+  border-radius: 20px;
+}
+.desktop-ver .Hidden-Menu .hidden-list {
+  margin-top: 5rem;
+  margin-left: 2.5rem;
+}
+.desktop-ver .Hidden-Menu .hidden-list .hidden-item {
+  display: flex;
+  height: 2rem;
+  width: 10rem;
+  align-items: center;
+  margin: 1.5rem 0;
+  padding-left: 4px;
+  cursor: pointer;
+  color: rgb(15, 15, 15);
+}
+.desktop-ver .Hidden-Menu .hidden-list .hidden-item:hover {
+  background: rgb(216, 215, 215);
+  border-radius: 10px;
+}
+.desktop-ver .hidden-menu-res {
+  display: none;
+}
+.desktop-ver .hidden-menu-res.show {
+  display: none;
+}
+.desktop-ver .target {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  scroll-snap-align: start;
+}
+.desktop-ver .target .content-section {
+  position: absolute;
+  width: 100%;
+  top: 7.8rem;
+  text-align: center;
+}
+.desktop-ver .target .content-section h1 {
+  font-size: 45px;
+  font-weight: 600;
+  color: #393c41;
+}
+.desktop-ver .target .content-section p {
+  margin-top: 1rem;
+  color: #66686c;
+}
+.desktop-ver .target .content-section a {
+  color: #66686c;
+}
+.desktop-ver .target .content-section a:hover {
+  color: black;
+}
+.desktop-ver .target .btn-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  bottom: 6.5rem;
+  gap: 4rem;
+}
+.desktop-ver .display-1 {
+  background-image: url(./assets/Desktop-Images/ms-homepage-desktop.webp);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.desktop-ver .display-2 {
+  background-image: url(./assets/Desktop-Images/Desktop-ModelY.webp);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.desktop-ver .display-3 {
+  background-image: url(./assets/Desktop-Images/M3-Homepage-D.webp);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.desktop-ver .display-4 {
+  background-image: url(./assets/Desktop-Images/ModelX-Homepage-D.webp);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.desktop-ver .display-5 {
+  background-image: url(./assets/Desktop-Images/SolarPanels-D.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.desktop-ver .display-6 {
+  background-image: url(./assets/Desktop-Images/HP-SR-Design-D.webp);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.desktop-ver .display-7 {
+  background-image: url(./assets/Desktop-Images/Desktop-Accessories.webp);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.desktop-ver .display-7 .content {
+  position: absolute;
+  top: 15%;
+  left: 44.5%;
+}
+.desktop-ver .display-7 .last-section {
+  width: 100%;
+}
+.desktop-ver .display-7 .last-section .btn-black {
+  background-color: black;
+}
+.desktop-ver .display-7 .endbar-container {
+  width: 100%;
+  position: absolute;
+  bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.desktop-ver .display-7 .endbar-container .endbar {
+  display: flex;
+}
+.desktop-ver .display-7 .endbar-container .endbar .endbar-list-item {
+  margin: 0 1rem;
+  font-size: 15px;
+  cursor: pointer;
+  color: rgb(103, 102, 102);
+}
+.desktop-ver .display-7 .endbar-container .endbar .endbar-list-item:hover {
+  color: black;
+}
+
+@media (max-width: 1200px) {
+  .desktop-ver .navbar {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    height: 5vh;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+  }
+  .desktop-ver .navbar #Tesla-Logo {
+    height: 30px;
+    width: 100px;
+    margin-left: 1.6rem;
+    margin-top: 0.3rem;
+    cursor: pointer;
+  }
+  .desktop-ver .navbar .Products-List {
+    display: none;
+  }
+  .desktop-ver .navbar .Menu {
+    display: flex;
+    height: 100%;
+    padding-top: 0.5rem;
+    padding-right: 2rem;
+  }
+  .desktop-ver .navbar .Menu .menu-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: -webkit-max-content;
+    min-width: -moz-max-content;
+    min-width: max-content;
+    width: 4rem;
+    margin: 0 1rem;
+    cursor: pointer;
+  }
+  .desktop-ver .navbar .Menu .menu-item:not(:last-child) {
+    display: none;
+  }
+  .desktop-ver .navbar .Menu .menu-item:hover {
+    background-color: rgba(128, 128, 128, 0.19);
+    padding-bottom: 1px;
+    border-radius: 10px;
+  }
+  .desktop-ver .navbar .Menu .menu-item a {
+    text-decoration: none;
+  }
+  .desktop-ver .Hidden-Menu {
+    display: none;
+  }
+  .desktop-ver .Hidden-Menu.show {
+    display: none;
+  }
+  .desktop-ver .hidden-menu-res {
+    display: block;
+    background: white;
+    position: fixed;
+    height: 100vh;
+    width: 0;
+    right: 0;
+    opacity: 0;
+    z-index: 100;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+  .desktop-ver .hidden-menu-res.show {
+    display: block;
+    background: white;
+    height: 100vh;
+    width: 33vh;
+    opacity: 1;
+    z-index: 100;
+    right: 0;
+  }
+  .desktop-ver .hidden-menu-res #Hamburger-Wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 2vh;
+    right: 2rem;
+    top: 2rem;
+    width: 2vh;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+  }
+  .desktop-ver .hidden-menu-res #Hamburger-Wrapper:hover {
+    background-color: rgb(218, 217, 217);
+    box-shadow: rgb(218, 217, 217) 0px 0px 1px 10px;
+  }
+  .desktop-ver .hidden-menu-res #Hamburger-Wrapper #hamburger {
+    background: transparent;
+    height: 20%;
+    width: 100%;
+    border-radius: 20px;
+  }
+  .desktop-ver .hidden-menu-res #Hamburger-Wrapper #hamburger::before {
+    content: "";
+    position: absolute;
+    background: black;
+    height: 20%;
+    width: 100%;
+    transform: translateY(0px) rotate(50deg);
+    border-radius: 20px;
+  }
+  .desktop-ver .hidden-menu-res #Hamburger-Wrapper #hamburger::after {
+    content: "";
+    position: absolute;
+    background: black;
+    height: 23%;
+    width: 100%;
+    transform: translateY(0px) rotate(-50deg);
+    border-radius: 20px;
+  }
+  .desktop-ver .hidden-menu-res .hidden-list {
+    margin-top: 5rem;
+    margin-left: 2.4rem;
+  }
+  .desktop-ver .hidden-menu-res .hidden-list .hidden-item {
+    width: 90%;
+    margin: 1rem 0;
+    padding: 0.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .desktop-ver .hidden-menu-res .hidden-list .hidden-item:hover {
+    background: rgb(216, 215, 215);
+  }
+  .desktop-ver .target .btn-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    bottom: 6.5rem;
+    gap: 4rem;
+  }
+}
+@media (max-width: 665px) {
+  .desktop-ver {
+    display: none;
+  }
+
+  .mobile-ver {
+    display: block;
+    height: 100vh;
+    width: 100%;
+    -ms-scroll-snap-type: y mandatory;
+        scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+  }
+  .mobile-ver .btn-black {
+    background-color: rgba(0, 0, 0, 0.687);
+    color: white;
+    font-weight: bolder;
+  }
+  .mobile-ver .btn-black:hover {
+    background-color: rgba(0, 0, 0, 0.753);
+  }
+  .mobile-ver .btn-white {
+    background-color: white;
+    color: rgb(57, 55, 55);
+    font-weight: bolder;
+  }
+  .mobile-ver .btn-white:hover {
+    background-color: rgba(255, 255, 255, 0.612);
+    color: rgb(8, 8, 8);
+  }
+  .mobile-ver .navbar {
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 5vh;
+    z-index: 1;
+  }
+  .mobile-ver .navbar #logo {
+    height: 12px;
+    width: 140px;
+    margin-top: 1.5rem;
+    cursor: pointer;
+  }
+  .mobile-ver .navbar #Menu-Btn {
+    margin-right: 1rem;
+    width: 66px;
+    height: 28px;
+    border-radius: 20px;
+    border: none;
+    margin-top: 1rem;
+    background: rgba(128, 128, 128, 0.306);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  .mobile-ver .navbar #Menu-Btn:hover {
+    background: rgba(128, 128, 128, 0.197);
+  }
+  .mobile-ver .hidden-menu {
+    opacity: 0;
+    display: block;
+    z-index: 100;
+    position: absolute;
+    right: 0;
+    width: 0;
+    height: 100vh;
+    background: white;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+  .mobile-ver .hidden-menu.show {
+    opacity: 1;
+    display: block;
+    z-index: 100;
+    position: absolute;
+    right: 0;
+    width: 33vh;
+    height: 100vh;
+    background: white;
+  }
+  .mobile-ver .hidden-menu #hamburger-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+    width: 2vh;
+    height: 2vh;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+  }
+  .mobile-ver .hidden-menu #hamburger-wrapper:hover {
+    background-color: rgb(218, 217, 217);
+    box-shadow: rgb(218, 217, 217) 0px 0px 1px 10px;
+  }
+  .mobile-ver .hidden-menu #hamburger-wrapper #hamburger {
+    width: 100%;
+    height: 20%;
+    border-radius: 20px;
+    background: transparent;
+  }
+  .mobile-ver .hidden-menu #hamburger-wrapper #hamburger::before {
+    content: "";
+    position: absolute;
+    transform: translateY(0px) rotate(50deg);
+    width: 100%;
+    height: 20%;
+    border-radius: 20px;
+    background: black;
+  }
+  .mobile-ver .hidden-menu #hamburger-wrapper #hamburger::after {
+    content: "";
+    position: absolute;
+    transform: translateY(0px) rotate(-50deg);
+    width: 100%;
+    height: 23%;
+    border-radius: 20px;
+    background: black;
+  }
+  .mobile-ver .hidden-menu .hidden-list {
+    margin-top: 5rem;
+    margin-left: 2.4rem;
+  }
+  .mobile-ver .hidden-menu .hidden-list .hidden-list-item {
+    margin: 1rem 0;
+    width: 90%;
+    padding: 0.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .mobile-ver .hidden-menu .hidden-list .hidden-list-item:hover {
+    background: rgb(216, 215, 215);
+  }
+  .mobile-ver .target {
+    height: 100vh;
+    position: relative;
+    scroll-snap-align: start;
+  }
+  .mobile-ver .target .content {
+    padding-top: 16vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+  }
+  .mobile-ver .target .content h1 {
+    color: rgb(57, 60, 65);
+    font-weight: 500;
+  }
+  .mobile-ver .target .content p {
+    margin-top: 10px;
+    color: rgb(98, 94, 94);
+  }
+  .mobile-ver .target .content a {
+    color: grey;
+  }
+  .mobile-ver .target .content a:hover {
+    color: black;
+  }
+  .mobile-ver .target .button-section {
+    width: 100%;
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    position: absolute;
+    bottom: 10vh;
+  }
+  .mobile-ver .target .button-section .btn {
+    width: 85%;
+    height: 2rem;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  .mobile-ver .display-1 {
+    background-image: url(./assets/Mobile-Images/ms-homepage-mobile.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .mobile-ver .display-2 {
+    background-image: url(./assets/Mobile-Images/0x0-ModelY_03.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .mobile-ver .display-3 {
+    background-image: url(./assets/Mobile-Images/M3-Homepage-M.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .mobile-ver .display-4 {
+    background-image: url(./assets/Mobile-Images/ModelX-Homepage-M.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .mobile-ver .display-5 {
+    background-image: url(./assets/Mobile-Images/SolarPanels-M.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .mobile-ver .display-6 {
+    background-image: url(./assets/Mobile-Images/HP-SR-Design-M.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .mobile-ver .display-7 {
+    position: relative;
+  }
+  .mobile-ver .display-7 #accessories {
+    position: absolute;
+    top: 16vh;
+    text-align: center;
+    width: 100%;
+    font-weight: 600;
+  }
+  .mobile-ver .display-7 #charging-img {
+    position: absolute;
+    top: 24vh;
+    left: 4%;
+    width: 25rem;
+    height: 25rem;
+  }
+  .mobile-ver .display-7 .last-btn {
+    bottom: 10vh;
+  }
+  .mobile-ver .display-7 .endbar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  .mobile-ver .display-7 .endbar .ending-item {
+    width: 100%;
+    text-align: center;
+    color: grey;
+    cursor: pointer;
+  }
+  .mobile-ver .display-7 .endbar .ending-item:hover {
+    color: black;
+  }
+}/*# sourceMappingURL=style.css.map */

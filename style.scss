@@ -1,0 +1,723 @@
+@import 'utilities';
+.mobile-ver{
+    // Removing mobile version when it is fullscreen
+    display: none;
+}
+.desktop-ver{
+    display: block;
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    // THe base properties of all the buttons
+    .btn{
+        width: 256px;
+        height: 2rem;
+        border-radius: 20px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+    // Properties of the black buttons
+    .btn-black{
+        background-color: rgba(0, 0, 0, 0.687);
+        color: white;
+        font-weight: 600;
+        &:hover{
+        background-color: rgba(0, 0, 0, 0.753);
+        }
+    }
+    // Properties of the white buttons
+    .btn-white{
+        background-color: white;
+        color: rgb(57, 55, 55);
+        font-weight: 600;
+        &:hover{
+            background-color: rgba(255, 255, 255, 0.612);
+            color: rgb(8, 8, 8);
+            }
+    }
+    // Styles for the navbar
+    .navbar{
+        position: fixed;
+        width: 100%;
+        height: 5vh;
+        top: 0;
+        z-index: 100;   
+        display: flex;
+        justify-content: space-between;
+        // Properties of the logo
+        #Tesla-Logo{
+            width: 100px;
+            height: 30px;   
+            margin-left: 1.6rem;
+            margin-top: 0.3rem;
+            cursor: pointer;
+        }
+        .Products-List{
+            display: flex;
+            height: 100%;
+            width: 40%;
+            padding-top: 0.5rem;
+            margin-left:11rem;
+            // Properties of the individual products
+            .list-product{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 7rem;
+                min-width: max-content;
+                margin: 0 0.1rem  ;
+                &:hover{
+                    background-color: rgba(128, 128, 128, 0.19);
+                    border-radius: 10px;
+                    padding-bottom: 1px;
+                }
+                a{
+                    text-decoration: none;
+                }
+            }
+        }
+        .Menu{
+            display: flex;
+            height: 100%;
+            padding-top: 0.5rem;
+            padding-right: 2rem;
+            // Properties of the individual menu items
+            .menu-item{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 4rem;
+                min-width: max-content;
+                margin: 0 1rem;
+                cursor: pointer;
+                &:hover{
+                    background-color: rgba(128, 128, 128, 0.19);
+                    padding-bottom: 1px;
+                    border-radius: 10px;
+                }
+                a{
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    // Styles for the hidden-menu
+    .Hidden-Menu{
+        display: block;
+        background: white;
+        position: fixed;
+        height: 100vh;
+        width: 0;
+        right:0;
+        opacity: 0;
+        z-index: 100;
+        overflow: hidden;
+        transition: all 0.3s ease-in-out;
+        &.show{
+            display: block;
+            background: white;
+            position: fixed;
+            height: 100vh;
+            width: 40vh;
+            right:0;
+            top: 0;
+            opacity: 1;
+            z-index: 100;
+            box-shadow: grey -0.1px 1px 100px 10px;
+        }
+        // Properties of the wrapper of the hamburger
+        #Hamburger-Wrapper{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            height: 2vh;
+            width: 2vh;
+            right: 2rem;
+            top: 2rem;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+            &:hover{
+                background-color: rgb(218, 217, 217) ;
+                box-shadow: rgb(218, 217, 217) 0px 0px 1px 10px;
+            }
+            // Properties of the hamburger 
+            #hamburger{
+                background: transparent;
+                width: 100%;
+                height: 20%;
+                border-radius: 20px;
+                &::before{
+                    content: '';
+                    background: black;
+                    position: absolute;
+                    width: 100%;
+                    height: 20%;
+                    transform: translateY(0px) rotate(50deg);
+                    border-radius: 20px;
+                }
+                &::after{
+                    content: '';
+                    background: black;
+                    position: absolute;
+                    height: 23%;
+                    width: 100%;
+                    transform: translateY(0px) rotate(-50deg);
+                    border-radius: 20px;
+                }
+            }
+        }
+        .hidden-list{
+            margin-top: 5rem;
+            margin-left: 2.5rem;
+            // Properties of the individual items in the hidden list
+            .hidden-item{
+                display: flex;
+                height: 2rem;
+                width: 10rem;
+                align-items: center;
+                margin: 1.5rem 0;
+                padding-left: 4px;
+                cursor: pointer;
+                color: rgb(15, 15, 15);
+                &:hover{
+                    background: rgb(216, 215, 215);
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+    // The properties of the responsive hidden menu
+    .hidden-menu-res{
+        display: none;
+        &.show{
+            display: none;
+        }
+    }
+    .target{
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        // This is for the scrolling effect
+        scroll-snap-align: start;
+        .content-section{
+            position: absolute;
+            width: 100%;
+            top: 7.8rem;
+            text-align: center  ;
+            h1{
+                font-size: 45px;
+                font-weight: 600;
+                color: #393c41;
+            }
+            p{
+                margin-top: 1rem;
+                color: #66686c;
+            }
+            a{
+                color: #66686c;
+                &:hover{
+                    color: black;
+                }
+            }
+        }
+        // The properties of the button section
+        .btn-section{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            width: 100%;
+            bottom: 6.5rem;
+            gap: 4rem;
+        }
+    }
+    // Properties of each individual display
+    .display-1{
+        background-image: url(./assets/Desktop-Images/ms-homepage-desktop.webp);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .display-2{
+        background-image: url(./assets/Desktop-Images/Desktop-ModelY.webp);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .display-3{
+        background-image: url(./assets/Desktop-Images/M3-Homepage-D.webp);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .display-4{
+        background-image: url(./assets/Desktop-Images/ModelX-Homepage-D.webp);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .display-5{
+        background-image: url(./assets/Desktop-Images/SolarPanels-D.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .display-6{
+        background-image: url(./assets/Desktop-Images/HP-SR-Design-D.webp);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .display-7{
+        background-image: url(./assets/Desktop-Images/Desktop-Accessories.webp);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        .content{
+            position: absolute;
+            top: 15%;
+            left:44.5%;
+        }
+        .last-section{
+            width: 100%;
+            .btn-black{
+                background-color: black;
+            }
+        }
+        .endbar-container{
+            width: 100%;
+            position: absolute;
+            bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+              // Properties of the ending navigation bar
+            .endbar{    
+                display: flex;
+                .endbar-list-item{
+                    margin: 0 1rem;
+                    font-size: 15px;
+                    cursor: pointer;
+                    color: rgb(103, 102, 102);
+                    &:hover{
+                        color: black;
+                    }
+                }
+                }
+        }
+    }
+}
+// Styles when the width is changing
+@media (max-width:1200px){
+    .desktop-ver{
+        .navbar{
+            display: flex;
+            justify-content: space-between;
+            position: fixed;
+            height: 5vh;
+            width: 100%;
+            top: 0;
+            z-index: 100;   
+            #Tesla-Logo{
+                height: 30px;   
+                width: 100px;
+                margin-left: 1.6rem;
+                margin-top: 0.3rem;
+                cursor: pointer;
+            }
+            .Products-List{
+                display: none;
+            }
+            .Menu{
+                display: flex;
+                height: 100%;
+                padding-top: 0.5rem;
+                padding-right: 2rem;
+                .menu-item{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    min-width: max-content;
+                    width: 4rem;
+                    margin: 0 1rem;
+                    cursor: pointer;
+                    &:not(:last-child){
+                        display: none;
+                    }
+                    &:hover{
+                        background-color: rgba(128, 128, 128, 0.19);
+                        padding-bottom: 1px;
+                        border-radius: 10px;
+                    }
+                    a{
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+        .Hidden-Menu{
+            display: none;
+            &.show{
+                display:none;
+            }
+        }
+        // Add a new hidden menu
+        .hidden-menu-res{
+            display: block;
+            background: white;
+            position: fixed;
+            height: 100vh;
+            width: 0;
+            right:0;
+            opacity: 0;
+            z-index: 100;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+            &.show{
+                display: block;
+                background: white;
+                height: 100vh;
+                width: 33vh;
+                opacity: 1;
+                z-index: 100;
+                right:0;
+            }
+            #Hamburger-Wrapper{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                height: 2vh;
+                right: 2rem;
+                top: 2rem;
+                width: 2vh;
+                cursor: pointer;
+                border-radius: 10px;
+                transition: all 0.3s ease-in-out;
+                &:hover{
+                    background-color: rgb(218, 217, 217) ;
+                    box-shadow: rgb(218, 217, 217) 0px 0px 1px 10px;
+                }
+                #hamburger{
+                    background: transparent;
+                    height: 20%;
+                    width: 100%;
+                    border-radius: 20px;
+                    &::before{
+                        content: '';
+                        position: absolute;
+                        background: black;
+                        height: 20%;
+                        width: 100%;
+                        transform: translateY(0px) rotate(50deg);
+                        border-radius: 20px;
+                    }
+                    &::after{
+                        content: '';
+                        position: absolute;
+                        background: black;
+                        height: 23%;
+                        width: 100%;
+                        transform: translateY(0px) rotate(-50deg);
+                        border-radius: 20px;
+                    }
+                }
+            }
+            .hidden-list{
+                margin-top: 5rem;
+                margin-left: 2.4rem;
+                .hidden-item{
+                    width: 90%;
+                    margin: 1rem 0;
+                    padding: 0.5rem;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    &:hover{
+                        background: rgb(216, 215, 215);
+                    }
+                }
+            }
+        }
+        .target{
+            .btn-section{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            width: 100%;
+            bottom: 6.5rem;
+            gap: 4rem;
+            }
+        }
+    }
+}
+// Styles for the mobile version
+@media (max-width:665px) {
+.desktop-ver{
+    display: none;
+}
+.mobile-ver{
+    display: block;
+    height: 100vh;
+    width: 100%;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    .btn-black{
+        background-color: rgba(0, 0, 0, 0.687);
+        color: white;
+        font-weight: bolder;
+        &:hover{
+        background-color: rgba(0, 0, 0, 0.753);
+        }
+    }
+    .btn-white{
+        background-color: white;
+        color: rgb(57, 55, 55);
+        font-weight: bolder;
+        &:hover{
+            background-color: rgba(255, 255, 255, 0.612);
+            color: rgb(8, 8, 8);
+            }
+    }
+    .navbar{
+        position: fixed;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: 5vh;
+        z-index: 1;
+        // Styles for the logo
+        #logo{
+            height: 12px;
+            width:140px ;
+            margin-top: 1.5rem;
+            cursor: pointer;
+        }
+        #Menu-Btn{
+            margin-right: 1rem;
+            width: 66px;
+            height: 28px;
+            border-radius: 20px;
+            border: none;
+            margin-top: 1rem;
+            background: rgba(128, 128, 128, 0.306);
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            &:hover{
+            background: rgba(128, 128, 128, 0.197);
+            }
+        }
+    }
+    // Styles for the hidden menu 
+    .hidden-menu{
+        opacity: 0;
+        display: block;
+        z-index: 100;
+        position: absolute;
+        right:0;
+        width: 0;
+        height: 100vh;
+        background: white;
+        overflow: hidden;
+        transition: all 0.3s ease-in-out;
+        &.show{
+            opacity: 1;
+            display: block;
+            z-index: 100;
+            position: absolute;
+            right:0;
+            width: 33vh;
+            height: 100vh;
+            background: white;
+        }
+        // Styles for the hamburger menu
+        #hamburger-wrapper{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            right: 2rem;
+            top: 2rem;
+            width: 2vh;
+            height: 2vh;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+            &:hover{
+                background-color: rgb(218, 217, 217) ;
+                box-shadow: rgb(218, 217, 217) 0px 0px 1px 10px;
+            }
+            #hamburger{
+                width: 100%;
+                height: 20%;
+                border-radius: 20px;
+                background: transparent;
+                &::before{
+                    content: '';
+                    position: absolute;
+                    transform: translateY(0px) rotate(50deg);
+                    width: 100%;
+                    height: 20%;
+                    border-radius: 20px;
+                    background: black;
+                }
+                &::after{
+                    content: '';
+                    position: absolute;
+                    transform: translateY(0px) rotate(-50deg);
+                    width: 100%;
+                    height: 23%;
+                    border-radius: 20px;
+                    background: black;
+                }
+            }
+        }
+        .hidden-list{
+            margin-top: 5rem;
+            margin-left: 2.4rem;
+            .hidden-list-item{
+                margin: 1rem 0;
+                width: 90%;
+                padding: 0.5rem;
+                border-radius: 10px;
+                cursor: pointer;
+                &:hover{
+                    background: rgb(216, 215, 215);
+                }
+            }
+        }
+    }
+    .target{
+        height: 100vh;
+        position: relative;
+        scroll-snap-align: start;
+        .content{
+            padding-top: 16vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            h1{
+                color:rgb(57, 60, 65);
+                font-weight: 500;
+            }
+            p{
+                margin-top: 10px;
+                color: rgb(98, 94, 94);
+            }
+            a{
+                color: grey;
+                &:hover{
+                    color: black;
+                }
+            }
+        }
+        // Styles for the section with buttons
+        .button-section{
+            width: 100%;
+            height: 10rem;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 2rem;
+            justify-content: center;
+            position: absolute;
+            bottom: 10vh;
+            .btn{
+                width: 85%;
+                height: 2rem;
+                border-radius: 20px;
+                border: none;
+                cursor: pointer;
+                transition: all 0.3s ease-in-out;
+            }
+        }
+    }
+    // Styles for all the individual displays
+    .display-1{
+        background-image: url(./assets/Mobile-Images/ms-homepage-mobile.webp);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .display-2{
+        background-image: url(./assets/Mobile-Images/0x0-ModelY_03.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .display-3{
+        background-image: url(./assets/Mobile-Images/M3-Homepage-M.webp);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .display-4{
+        background-image: url(./assets/Mobile-Images/ModelX-Homepage-M.webp);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .display-5{
+        background-image: url(./assets/Mobile-Images/SolarPanels-M.webp);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .display-6{
+        background-image: url(./assets/Mobile-Images/HP-SR-Design-M.webp);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    // Styles for the last display
+    .display-7{
+        position: relative;
+        #accessories{
+            position: absolute;
+            top: 16vh;
+            text-align: center;
+            width: 100%;
+            font-weight: 600;
+        }
+        #charging-img{
+            position: absolute;
+            top: 24vh;
+            left: 4%;
+            width: 25rem;
+            height: 25rem;
+        }
+        .last-btn{
+            bottom:10vh;
+        }
+        // Styles for the ending navigation bar
+        .endbar{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            margin-bottom: 2rem;
+            .ending-item{
+                width: 100%;
+                text-align: center;
+                color: grey;
+                cursor: pointer;
+            &:hover{
+                color: black;
+            }
+            }
+        }
+    }
+}
+}
+
+
